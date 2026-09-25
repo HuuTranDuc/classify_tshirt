@@ -1,0 +1,45 @@
+{
+  "model_family": "dinov3_cls_defect_classifier",
+  "source_model_family": "dinov3_finegrained_patch_mil",
+  "source_backbone": "vitb16",
+  "source_checkpoint": "/storage/test/matcher_tshirt/model_matcher/checkpoints_dino_v3_b16_finegrained_multiscale_equal50_fn1_v6_clean/best.pth",
+  "backbone": "/storage/test/matcher_tshirt/model_matcher/onnx_dino_v3_b16_finegrained_multiscale_equal50_fn1_v6_clean/backbone.onnx",
+  "classifier_head": "classifier_head.onnx",
+  "image_size": 512,
+  "feature_dim": 768,
+  "num_classes": 12,
+  "class_names": [
+    "Rách vải",
+    "Bục rách đường may",
+    "Xếp ly đường may",
+    "Bẩn vải",
+    "Dính dầu",
+    "Bỏ mũi",
+    "Lỗi vải",
+    "Đứt chỉ",
+    "Mex túi áo",
+    "Bụi bẩn",
+    "Sợi chỉ",
+    "Móc áo"
+  ],
+  "preprocess": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "interpolation": "bicubic"
+  },
+  "backbone_input": "image",
+  "backbone_output": "cls_tokens",
+  "head_input": "features_raw",
+  "head_output": "logits",
+  "head_type": "mlp",
+  "hidden_dim": 256,
+  "dropout": 0.3
+}
