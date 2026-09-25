@@ -1,6 +1,6 @@
 """Minimal reusable-API example for the 12-class defect classifier."""
 
-from model_classify.predict import DefectClassifier, read_image_bgr
+from predict import DefectClassifier, read_image_bgr
 
 
 classifier = DefectClassifier(
